@@ -1,3 +1,5 @@
+import type { ICallerIdContact } from './ICallerIdContact';
+
 export interface CallerIdPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  addContacts(options: { contacts: ICallerIdContact[] }): Promise<void>;
 }
