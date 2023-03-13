@@ -20,7 +20,7 @@
 		8D13323C29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D13323929BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld */; };
 		8D13323F29BF86EA00D2C793 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; };
 		8D13324329BFB71B00D2C793 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; };
-		8D13324429BFB71B00D2C793 /* CoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8D13324429BFB71B00D2C793 /* CoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8DEACB3F29BBA9F80031255E /* CallDirectoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -256,7 +256,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Max Lynch";
 				TargetAttributes = {
 					50ADFF87201F53D600D50D53 = {
@@ -443,6 +443,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -509,6 +510,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -627,7 +629,6 @@
 		8DEACB4129BBA9F80031255E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -655,7 +656,6 @@
 		8DEACB4229BBA9F80031255E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
