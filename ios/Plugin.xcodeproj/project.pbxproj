@@ -19,7 +19,8 @@
 		8D13323B29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D13323929BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld */; };
 		8D13323C29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D13323929BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld */; };
 		8D13323F29BF86EA00D2C793 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; };
-		8D13324229BF89E800D2C793 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; };
+		8D13324329BFB71B00D2C793 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; };
+		8D13324429BFB71B00D2C793 /* CoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8DEACB3F29BBA9F80031255E /* CallDirectoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,20 @@
 			remoteInfo = Plugin;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8D13324529BFB71B00D2C793 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8D13324429BFB71B00D2C793 /* CoreData.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2F98D68124C9AAE400613A4C /* CallerId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallerId.swift; sourceTree = "<group>"; };
@@ -81,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D13324229BF89E800D2C793 /* CoreData.framework in Frameworks */,
+				8D13324329BFB71B00D2C793 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +238,7 @@
 				8DEACB3829BBA9F80031255E /* Sources */,
 				8DEACB3929BBA9F80031255E /* Frameworks */,
 				8DEACB3A29BBA9F80031255E /* Resources */,
+				8D13324529BFB71B00D2C793 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -535,6 +551,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_ASSET_PATHS = CallerIdDataModel.xcdatamodeld/CallerIdDataModel.xcdatamodel;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -561,6 +578,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_ASSET_PATHS = CallerIdDataModel.xcdatamodeld/CallerIdDataModel.xcdatamodel;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
