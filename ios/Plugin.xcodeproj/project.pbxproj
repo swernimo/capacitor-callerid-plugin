@@ -18,9 +18,10 @@
 		50E1A94820377CB70090CE1A /* CallerIdPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E1A94720377CB70090CE1A /* CallerIdPlugin.swift */; };
 		8D13323B29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D13323929BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld */; };
 		8D13323C29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D13323929BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld */; };
-		8D13323F29BF86EA00D2C793 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; };
 		8D13324329BFB71B00D2C793 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; };
-		8D13324429BFB71B00D2C793 /* CoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8D13324429BFB71B00D2C793 /* CoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8D6B10BE29BFCE6A00E87443 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; };
+		8D6B10BF29BFCE6A00E87443 /* CoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8DEACB3F29BBA9F80031255E /* CallDirectoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				8D13324429BFB71B00D2C793 /* CoreData.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D6B10C029BFCE6A00E87443 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8D6B10BF29BFCE6A00E87443 /* CoreData.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,7 +90,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50ADFFA42020D75100D50D53 /* Capacitor.framework in Frameworks */,
-				8D13323F29BF86EA00D2C793 /* CoreData.framework in Frameworks */,
+				8D6B10BE29BFCE6A00E87443 /* CoreData.framework in Frameworks */,
 				03FC29A292ACC40490383A1F /* Pods_Plugin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +213,7 @@
 				50ADFF84201F53D600D50D53 /* Frameworks */,
 				50ADFF85201F53D600D50D53 /* Headers */,
 				50ADFF86201F53D600D50D53 /* Resources */,
+				8D6B10C029BFCE6A00E87443 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -634,6 +647,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = CallerIdDataModel.xcdatamodeld/CallerIdDataModel.xcdatamodel;
 				DEVELOPMENT_TEAM = 47ABZ3K7SY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CallerIdExtension/Info.plist;
@@ -661,6 +675,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = CallerIdDataModel.xcdatamodeld/CallerIdDataModel.xcdatamodel;
 				DEVELOPMENT_TEAM = 47ABZ3K7SY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CallerIdExtension/Info.plist;
