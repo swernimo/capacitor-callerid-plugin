@@ -19,9 +19,7 @@
 		8D13323B29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D13323929BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld */; };
 		8D13323C29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D13323929BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld */; };
 		8D13324329BFB71B00D2C793 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; };
-		8D13324429BFB71B00D2C793 /* CoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8D6B10BE29BFCE6A00E87443 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; };
-		8D6B10BF29BFCE6A00E87443 /* CoreData.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8DEACB3F29BBA9F80031255E /* CallDirectoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,31 +32,6 @@
 			remoteInfo = Plugin;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8D13324529BFB71B00D2C793 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8D13324429BFB71B00D2C793 /* CoreData.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8D6B10C029BFCE6A00E87443 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8D6B10BF29BFCE6A00E87443 /* CoreData.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2F98D68124C9AAE400613A4C /* CallerId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallerId.swift; sourceTree = "<group>"; };
@@ -75,6 +48,7 @@
 		5E23F77F099397094342571A /* Pods-Plugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.debug.xcconfig"; sourceTree = "<group>"; };
 		8D13323A29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CallerIdDataModel.xcdatamodel; sourceTree = "<group>"; };
 		8D13323D29BF86E300D2C793 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8D6B10C129BFD01000E87443 /* CallerIdExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CallerIdExtension.entitlements; sourceTree = "<group>"; };
 		8DEACB3C29BBA9F80031255E /* CallerIdExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CallerIdExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectoryHandler.swift; sourceTree = "<group>"; };
 		8DEACB4029BBA9F80031255E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -173,6 +147,7 @@
 		8DEACB3D29BBA9F80031255E /* CallerIdExtension */ = {
 			isa = PBXGroup;
 			children = (
+				8D6B10C129BFD01000E87443 /* CallerIdExtension.entitlements */,
 				8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */,
 				8DEACB4029BBA9F80031255E /* Info.plist */,
 			);
@@ -213,7 +188,6 @@
 				50ADFF84201F53D600D50D53 /* Frameworks */,
 				50ADFF85201F53D600D50D53 /* Headers */,
 				50ADFF86201F53D600D50D53 /* Resources */,
-				8D6B10C029BFCE6A00E87443 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -251,7 +225,6 @@
 				8DEACB3829BBA9F80031255E /* Sources */,
 				8DEACB3929BBA9F80031255E /* Frameworks */,
 				8DEACB3A29BBA9F80031255E /* Resources */,
-				8D13324529BFB71B00D2C793 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -566,7 +539,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_ASSET_PATHS = CallerIdDataModel.xcdatamodeld/CallerIdDataModel.xcdatamodel;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -593,7 +566,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_ASSET_PATHS = CallerIdDataModel.xcdatamodeld/CallerIdDataModel.xcdatamodel;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -645,9 +618,11 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = CallerIdExtension/CallerIdExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = CallerIdDataModel.xcdatamodeld/CallerIdDataModel.xcdatamodel;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 47ABZ3K7SY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CallerIdExtension/Info.plist;
@@ -658,8 +633,9 @@
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.theblindsquirrel.CallerIdExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.unanet.cosentialformobile.calleridextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -673,9 +649,11 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = CallerIdExtension/CallerIdExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = CallerIdDataModel.xcdatamodeld/CallerIdDataModel.xcdatamodel;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 47ABZ3K7SY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CallerIdExtension/Info.plist;
@@ -685,8 +663,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.theblindsquirrel.CallerIdExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.unanet.cosentialformobile.calleridextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
