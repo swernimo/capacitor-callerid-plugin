@@ -6,7 +6,7 @@ import type { CallerIdPlugin } from './definitions';
 export class CallerIdWeb extends WebPlugin implements CallerIdPlugin {
 
   async addContacts(options: { contacts: ICallerIdContact[] }): Promise<void> {
-    console.log('ECHO', options);
+    console.log('caller id plugin', options);
     return;
   }
 }

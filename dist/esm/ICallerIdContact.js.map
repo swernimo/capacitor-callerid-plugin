@@ -1,0 +1,1 @@
+{"version":3,"file":"ICallerIdContact.js","sourceRoot":"","sources":["../../src/ICallerIdContact.ts"],"names":[],"mappings":"","sourcesContent":["export interface ICallerIdContact {\n    displayname?: string;\n    lastupdated?: Date;\n    phonenumber?: number;\n  }"]}
