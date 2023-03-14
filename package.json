@@ -1,6 +1,6 @@
 {
   "name": "capacitor-callerid-plugin",
-  "version": "0.0.2-alpha9",
+  "version": "0.0.2-alpha10",
   "description": "A capacitor plugin that displays the name of an incoming call when the incoming phone number matches a contact within the app.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
