@@ -16,9 +16,8 @@
 		50ADFFA42020D75100D50D53 /* Capacitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50ADFFA52020D75100D50D53 /* Capacitor.framework */; };
 		50ADFFA82020EE4F00D50D53 /* CallerIdPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFFA72020EE4F00D50D53 /* CallerIdPlugin.m */; };
 		50E1A94820377CB70090CE1A /* CallerIdPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E1A94720377CB70090CE1A /* CallerIdPlugin.swift */; };
-		8D13323B29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D13323929BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld */; };
-		8D13323C29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D13323929BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld */; };
 		8D13324329BFB71B00D2C793 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; };
+		8D1EB8C629D615BB0041B2A4 /* CallerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1EB8C529D615BB0041B2A4 /* CallerInfo.swift */; };
 		8D6B10BE29BFCE6A00E87443 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D13323D29BF86E300D2C793 /* CoreData.framework */; };
 		8DEACB3F29BBA9F80031255E /* CallDirectoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */; };
 /* End PBXBuildFile section */
@@ -46,8 +45,8 @@
 		50ADFFA72020EE4F00D50D53 /* CallerIdPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallerIdPlugin.m; sourceTree = "<group>"; };
 		50E1A94720377CB70090CE1A /* CallerIdPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallerIdPlugin.swift; sourceTree = "<group>"; };
 		5E23F77F099397094342571A /* Pods-Plugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.debug.xcconfig"; sourceTree = "<group>"; };
-		8D13323A29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CallerIdDataModel.xcdatamodel; sourceTree = "<group>"; };
 		8D13323D29BF86E300D2C793 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8D1EB8C529D615BB0041B2A4 /* CallerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallerInfo.swift; sourceTree = "<group>"; };
 		8D6B10C129BFD01000E87443 /* CallerIdExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CallerIdExtension.entitlements; sourceTree = "<group>"; };
 		8DEACB3C29BBA9F80031255E /* CallerIdExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CallerIdExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectoryHandler.swift; sourceTree = "<group>"; };
@@ -114,12 +113,12 @@
 		50ADFF8A201F53D600D50D53 /* Plugin */ = {
 			isa = PBXGroup;
 			children = (
-				8D13323929BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld */,
 				50E1A94720377CB70090CE1A /* CallerIdPlugin.swift */,
 				2F98D68124C9AAE400613A4C /* CallerId.swift */,
 				50ADFF8B201F53D600D50D53 /* CallerIdPlugin.h */,
 				50ADFFA72020EE4F00D50D53 /* CallerIdPlugin.m */,
 				50ADFF8C201F53D600D50D53 /* Info.plist */,
+				8D1EB8C529D615BB0041B2A4 /* CallerInfo.swift */,
 			);
 			path = Plugin;
 			sourceTree = "<group>";
@@ -370,8 +369,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				50E1A94820377CB70090CE1A /* CallerIdPlugin.swift in Sources */,
-				8D13323B29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld in Sources */,
 				2F98D68224C9AAE500613A4C /* CallerId.swift in Sources */,
+				8D1EB8C629D615BB0041B2A4 /* CallerInfo.swift in Sources */,
 				50ADFFA82020EE4F00D50D53 /* CallerIdPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,7 +388,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DEACB3F29BBA9F80031255E /* CallDirectoryHandler.swift in Sources */,
-				8D13323C29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,19 +713,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		8D13323929BF83FD00D2C793 /* CallerIdDataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				8D13323A29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodel */,
-			);
-			currentVersion = 8D13323A29BF83FD00D2C793 /* CallerIdDataModel.xcdatamodel */;
-			path = CallerIdDataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 50ADFF7F201F53D600D50D53 /* Project object */;
 }
