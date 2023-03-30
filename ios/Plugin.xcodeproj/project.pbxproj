@@ -537,7 +537,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_ASSET_PATHS = Plugin/CallerIdDataModel.xcdatamodeld/CallerIdDataModel.xcdatamodel;
 				DEVELOPMENT_TEAM = 47ABZ3K7SY;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -565,7 +564,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_ASSET_PATHS = Plugin/CallerIdDataModel.xcdatamodeld/CallerIdDataModel.xcdatamodel;
 				DEVELOPMENT_TEAM = 47ABZ3K7SY;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
