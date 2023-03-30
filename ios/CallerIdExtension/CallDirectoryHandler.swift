@@ -8,8 +8,8 @@
 
 import Foundation
 import CallKit
-import CoreData
 import OSLog
+import Plugin
 
 class CallDirectoryHandler: CXCallDirectoryProvider {
 
@@ -35,15 +35,26 @@ class CallDirectoryHandler: CXCallDirectoryProvider {
         if let callers = try? self.getCallers() {
             os_log("Call Directory Handler: got callers array")
             for caller in callers {
-                context.addIdentificationEntry(withNextSequentialPhoneNumber: caller.phonenumber, label: caller.displayname ?? "")
+                context.addIdentificationEntry(withNextSequentialPhoneNumber: caller.PhoneNumber, label: caller.DisplayName)
             }
         }
+        UserDefaults.standard.removeObject(forKey: "Contacts")
     }
     
     private func getCallers() throws -> [CallerInfo]  {
         os_log("Call Directory Handler get callers")
-        let fetchRequest:NSFetchRequest<CallerInfo> = CallerInfo.fetchRequest()
-        let callers = try fetchRequest.execute()
+        let callers: [CallerInfo] = []
+        guard let saved = UserDefaults.standard.array(forKey: "Contacts") else {
+            return []
+        }
+        let decoder = JSONDecoder()
+        for data in saved {
+            os_log("")
+//            let caller = decoder.decode(CallerInfo.self, from: da)
+//            callers.append(caller)
+        }
+//        let fetchRequest:NSFetchRequest<CallerInfo> = CallerInfo.fetchRequest()
+//        let callers = try fetchRequest.execute()
         return callers
     }
 }

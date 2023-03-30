@@ -1,7 +1,7 @@
 import Foundation
+import CallKit
 import Capacitor
 import OSLog
-import CoreData
 
 /**
  * Please read the Capacitor iOS Plugin Development Guide
@@ -16,9 +16,7 @@ public class CallerIdPlugin: CAPPlugin {
             if(contactsJSON.isEmpty) {
                 return call.reject("Cannot Add Empty Array")
             }
-//            UserDefaults.standard.set(contactsJSON, forKey: "Contacts")
             let dateFormatter = ISO8601DateFormatter()
-            //UserDefaults.standard.removeObject(forKey: <#T##String#>)
             var contacts: [CallerInfo] = []
             for json in contactsJSON {
                     let displayName = json["displayname"] as! String
@@ -27,11 +25,15 @@ public class CallerIdPlugin: CAPPlugin {
                 guard let lastUpdated = dateFormatter.date(from: lastUpdatedStr) else { return  }
                     let contact = CallerInfo(DisplayName: displayName, PhoneNumber: number, LastUpdated: lastUpdated)
                     contacts.append(contact)
-                    os_log("")
             }
             if(!contacts.isEmpty) {
                 implementation.addContacts(callers: contacts)
-//                //TODO: reload extension
+                CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: "com.unanet.cosentialformobile.calleridextension", completionHandler: { (error) in
+                    if let error = error {
+                        print("Error reloading extension: \(error.localizedDescription)")
+                    }
+                })
+                os_log("Successfully reloaded call directory extension")
                 return call.resolve()
             }
             return call.reject("Invalid contacts")
