@@ -1,6 +1,7 @@
 import Foundation
 import Capacitor
 import OSLog
+import CoreData
 
 /**
  * Please read the Capacitor iOS Plugin Development Guide
@@ -11,37 +12,29 @@ public class CallerIdPlugin: CAPPlugin {
     private let implementation = CallerId()
     
     @objc func addContacts(_ call: CAPPluginCall) {
-        if let contactsJSON = call.getAny("contacts") as? [Data] {
+        if let contactsJSON = call.getAny("contacts") as? [[String: AnyObject]] {
             if(contactsJSON.isEmpty) {
                 return call.reject("Cannot Add Empty Array")
             }
-//            let dateFormatter = ISO8601DateFormatter()
-            let decoder = JSONDecoder()
-            decoder.dateDecodingStrategy = .iso8601
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
+//            UserDefaults.standard.set(contactsJSON, forKey: "Contacts")
+            let dateFormatter = ISO8601DateFormatter()
             //UserDefaults.standard.removeObject(forKey: <#T##String#>)
             var contacts: [CallerInfo] = []
             for json in contactsJSON {
-                guard let caller = try? decoder.decode(CallerInfo.self, from: json) else {
-                    return call.reject("Invalid JSON supplied to plugin")
-                }
-                contacts.append(caller)
-//                    let displayName = json["displayname"] as! String
-//                    let number = Int64.init(json["phonenumber"] as! String)!
-//                    let lastUpdatedStr = json["lastupdated"] as? String ?? ""
-//                    let lastUpdated = dateFormatter.date(from: lastUpdatedStr)
-//                    let contact = CallerInfo()
-//                    contact.displayname = displayName
-//                    contact.phonenumber = number
-//                    contact.lastupdated = lastUpdated
-//                    contacts.append(contact)
+                    let displayName = json["displayname"] as! String
+                    let number = Int64.init(json["phonenumber"] as! String)!
+                    let lastUpdatedStr = json["lastupdated"] as? String ?? ""
+                guard let lastUpdated = dateFormatter.date(from: lastUpdatedStr) else { return  }
+                    let contact = CallerInfo(DisplayName: displayName, PhoneNumber: number, LastUpdated: lastUpdated)
+                    contacts.append(contact)
                     os_log("")
             }
             if(!contacts.isEmpty) {
                 implementation.addContacts(callers: contacts)
-                //TODO: reload extension
+//                //TODO: reload extension
                 return call.resolve()
             }
+            return call.reject("Invalid contacts")
         } else {
             return call.reject("Error occured trying to get contacts")
         }
