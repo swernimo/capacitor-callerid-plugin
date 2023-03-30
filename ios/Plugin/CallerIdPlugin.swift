@@ -1,7 +1,6 @@
 import Foundation
 import Capacitor
 import OSLog
-import CoreData
 
 /**
  * Please read the Capacitor iOS Plugin Development Guide
