@@ -49,7 +49,7 @@ class CallDirectoryHandler: CXCallDirectoryProvider {
         }
         let decoder = JSONDecoder()
         for data in saved {
-            os_log("")
+            print("Trying to get caller info from UserDefaults: \(data)")
 //            let caller = decoder.decode(CallerInfo.self, from: da)
 //            callers.append(caller)
         }

@@ -1,5 +1,4 @@
 import Foundation
-import CallKit
 import Capacitor
 import OSLog
 
@@ -28,12 +27,6 @@ public class CallerIdPlugin: CAPPlugin {
             }
             if(!contacts.isEmpty) {
                 implementation.addContacts(callers: contacts)
-                CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: "com.unanet.cosentialformobile.calleridextension", completionHandler: { (error) in
-                    if let error = error {
-                        print("Error reloading extension: \(error.localizedDescription)")
-                    }
-                })
-                os_log("Successfully reloaded call directory extension")
                 return call.resolve()
             }
             return call.reject("Invalid contacts")
