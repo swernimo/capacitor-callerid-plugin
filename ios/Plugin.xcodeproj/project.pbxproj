@@ -88,7 +88,6 @@
 			children = (
 				50ADFF8A201F53D600D50D53 /* Plugin */,
 				50ADFF95201F53D600D50D53 /* PluginTests */,
-				8DEACB3D29BBA9F80031255E /* CallerIdExtension */,
 				50ADFF89201F53D600D50D53 /* Products */,
 				8C8E7744173064A9F6D438E3 /* Pods */,
 				A797B9EFA3DCEFEA1FBB66A9 /* Frameworks */,
@@ -108,6 +107,7 @@
 		50ADFF8A201F53D600D50D53 /* Plugin */ = {
 			isa = PBXGroup;
 			children = (
+				8DEACB3D29BBA9F80031255E /* CallerIdExtension */,
 				50E1A94720377CB70090CE1A /* CallerIdPlugin.swift */,
 				2F98D68124C9AAE400613A4C /* CallerId.swift */,
 				50ADFF8B201F53D600D50D53 /* CallerIdPlugin.h */,
