@@ -17,6 +17,7 @@
 		50ADFFA82020EE4F00D50D53 /* CallerIdPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFFA72020EE4F00D50D53 /* CallerIdPlugin.m */; };
 		50E1A94820377CB70090CE1A /* CallerIdPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E1A94720377CB70090CE1A /* CallerIdPlugin.swift */; };
 		8D1EB8C629D615BB0041B2A4 /* CallerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1EB8C529D615BB0041B2A4 /* CallerInfo.swift */; };
+		8DB0DC7D29D78C1B001E6308 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB0DC7C29D78C1B001E6308 /* CallKit.framework */; };
 		8DEACB3F29BBA9F80031255E /* CallDirectoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		5E23F77F099397094342571A /* Pods-Plugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.debug.xcconfig"; sourceTree = "<group>"; };
 		8D1EB8C529D615BB0041B2A4 /* CallerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallerInfo.swift; sourceTree = "<group>"; };
 		8D6B10C129BFD01000E87443 /* CallerIdExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CallerIdExtension.entitlements; sourceTree = "<group>"; };
+		8DB0DC7C29D78C1B001E6308 /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
 		8DEACB3C29BBA9F80031255E /* CallerIdExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CallerIdExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectoryHandler.swift; sourceTree = "<group>"; };
 		8DEACB4029BBA9F80031255E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DB0DC7D29D78C1B001E6308 /* CallKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +154,7 @@
 		A797B9EFA3DCEFEA1FBB66A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8DB0DC7C29D78C1B001E6308 /* CallKit.framework */,
 				50ADFFA52020D75100D50D53 /* Capacitor.framework */,
 				3B2A61DA5A1F2DD4F959604D /* Pods_Plugin.framework */,
 				F6753A823D3815DB436415E3 /* Pods_PluginTests.framework */,

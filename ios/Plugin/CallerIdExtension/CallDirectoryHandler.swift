@@ -9,7 +9,6 @@
 import Foundation
 import CallKit
 import OSLog
-import Plugin
 
 class CallDirectoryHandler: CXCallDirectoryProvider {
 
