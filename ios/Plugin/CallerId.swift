@@ -8,12 +8,27 @@ import OSLog
         let encoder = JSONEncoder()
         guard let encoded = try? encoder.encode(callers) else { return }
         UserDefaults.standard.set(encoded, forKey: "Contacts")
-        CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: "com.unanet.cosentialformobile.calleridextension", completionHandler: { (error) in
+        
+        let extensionBundleId = "com.unanet.cosentialformobile.calleridextension"
+        
+        CXCallDirectoryManager.sharedInstance.getEnabledStatusForExtension(withIdentifier: extensionBundleId, completionHandler: {(status, error) -> Void in
             if let error = error {
-                print("Error reloading extension: \(error.localizedDescription)")
+                print(error.localizedDescription)
+            }
+            else {
+                if (status == .enabled) {
+                    print("Extension is enabled")
+                    CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: extensionBundleId, completionHandler: { (error) in
+                        if let error = error {
+                            print("Error reloading extension: \(error.localizedDescription)")
+                        }
+                        else {
+                            print("Success reloading extension")
+                        }
+                    })
+                }
             }
         })
-        os_log("Successfully reloaded call directory extension")
         return
     }
 }
