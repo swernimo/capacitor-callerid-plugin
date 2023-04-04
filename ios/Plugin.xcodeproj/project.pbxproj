@@ -17,8 +17,6 @@
 		50ADFFA82020EE4F00D50D53 /* CallerIdPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 50ADFFA72020EE4F00D50D53 /* CallerIdPlugin.m */; };
 		50E1A94820377CB70090CE1A /* CallerIdPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E1A94720377CB70090CE1A /* CallerIdPlugin.swift */; };
 		8D1EB8C629D615BB0041B2A4 /* CallerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1EB8C529D615BB0041B2A4 /* CallerInfo.swift */; };
-		8DB0DC7D29D78C1B001E6308 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB0DC7C29D78C1B001E6308 /* CallKit.framework */; };
-		8DEACB3F29BBA9F80031255E /* CallDirectoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,11 +43,7 @@
 		50E1A94720377CB70090CE1A /* CallerIdPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallerIdPlugin.swift; sourceTree = "<group>"; };
 		5E23F77F099397094342571A /* Pods-Plugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.debug.xcconfig"; sourceTree = "<group>"; };
 		8D1EB8C529D615BB0041B2A4 /* CallerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallerInfo.swift; sourceTree = "<group>"; };
-		8D6B10C129BFD01000E87443 /* CallerIdExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CallerIdExtension.entitlements; sourceTree = "<group>"; };
 		8DB0DC7C29D78C1B001E6308 /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
-		8DEACB3C29BBA9F80031255E /* CallerIdExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CallerIdExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectoryHandler.swift; sourceTree = "<group>"; };
-		8DEACB4029BBA9F80031255E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91781294A431A2A7CC6EB714 /* Pods-Plugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Plugin/Pods-Plugin.release.xcconfig"; sourceTree = "<group>"; };
 		96ED1B6440D6672E406C8D19 /* Pods-PluginTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PluginTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PluginTests/Pods-PluginTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F65BB2953ECE002E1EF3E424 /* Pods-PluginTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PluginTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PluginTests/Pods-PluginTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,14 +69,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8DEACB3929BBA9F80031255E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8DB0DC7D29D78C1B001E6308 /* CallKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -102,7 +88,6 @@
 			children = (
 				50ADFF88201F53D600D50D53 /* Plugin.framework */,
 				50ADFF91201F53D600D50D53 /* PluginTests.xctest */,
-				8DEACB3C29BBA9F80031255E /* CallerIdExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,7 +95,6 @@
 		50ADFF8A201F53D600D50D53 /* Plugin */ = {
 			isa = PBXGroup;
 			children = (
-				8DEACB3D29BBA9F80031255E /* CallerIdExtension */,
 				50E1A94720377CB70090CE1A /* CallerIdPlugin.swift */,
 				2F98D68124C9AAE400613A4C /* CallerId.swift */,
 				50ADFF8B201F53D600D50D53 /* CallerIdPlugin.h */,
@@ -139,16 +123,6 @@
 				F65BB2953ECE002E1EF3E424 /* Pods-PluginTests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		8DEACB3D29BBA9F80031255E /* CallerIdExtension */ = {
-			isa = PBXGroup;
-			children = (
-				8D6B10C129BFD01000E87443 /* CallerIdExtension.entitlements */,
-				8DEACB3E29BBA9F80031255E /* CallDirectoryHandler.swift */,
-				8DEACB4029BBA9F80031255E /* Info.plist */,
-			);
-			path = CallerIdExtension;
 			sourceTree = "<group>";
 		};
 		A797B9EFA3DCEFEA1FBB66A9 /* Frameworks */ = {
@@ -215,23 +189,6 @@
 			productReference = 50ADFF91201F53D600D50D53 /* PluginTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8DEACB3B29BBA9F80031255E /* CallerIdExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8DEACB4329BBA9F80031255E /* Build configuration list for PBXNativeTarget "CallerIdExtension" */;
-			buildPhases = (
-				8DEACB3829BBA9F80031255E /* Sources */,
-				8DEACB3929BBA9F80031255E /* Frameworks */,
-				8DEACB3A29BBA9F80031255E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CallerIdExtension;
-			productName = CallerIdExtension;
-			productReference = 8DEACB3C29BBA9F80031255E /* CallerIdExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -252,10 +209,6 @@
 						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 					};
-					8DEACB3B29BBA9F80031255E = {
-						CreatedOnToolsVersion = 14.0;
-						ProvisioningStyle = Automatic;
-					};
 				};
 			};
 			buildConfigurationList = 50ADFF82201F53D600D50D53 /* Build configuration list for PBXProject "Plugin" */;
@@ -273,7 +226,6 @@
 			targets = (
 				50ADFF87201F53D600D50D53 /* Plugin */,
 				50ADFF90201F53D600D50D53 /* PluginTests */,
-				8DEACB3B29BBA9F80031255E /* CallerIdExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -287,13 +239,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		50ADFF8F201F53D600D50D53 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DEACB3A29BBA9F80031255E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -378,14 +323,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				50ADFF97201F53D600D50D53 /* CallerIdTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8DEACB3829BBA9F80031255E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8DEACB3F29BBA9F80031255E /* CallDirectoryHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,67 +553,6 @@
 			};
 			name = Release;
 		};
-		8DEACB4129BBA9F80031255E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = CallerIdExtension/CallerIdExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 47ABZ3K7SY;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CallerIdExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CallerIdExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Max Lynch. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.unanet.cosentialformobile.CallerId;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		8DEACB4229BBA9F80031255E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = CallerIdExtension/CallerIdExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 47ABZ3K7SY;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CallerIdExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CallerIdExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 Max Lynch. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 1.0;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.unanet.cosentialformobile.CallerId;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -703,15 +579,6 @@
 			buildConfigurations = (
 				50ADFFA0201F53D600D50D53 /* Debug */,
 				50ADFFA1201F53D600D50D53 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8DEACB4329BBA9F80031255E /* Build configuration list for PBXNativeTarget "CallerIdExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8DEACB4129BBA9F80031255E /* Debug */,
-				8DEACB4229BBA9F80031255E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
