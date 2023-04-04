@@ -7,7 +7,6 @@
 
 import Foundation
 import CallKit
-import Plugin
 
 class CallDirectoryHandler: CXCallDirectoryProvider {
 
