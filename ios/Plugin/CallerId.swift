@@ -1,16 +1,25 @@
 import Foundation
 import CallKit
-import OSLog
 
 @objc public class CallerId: NSObject {
     @objc public func addContacts(callers: [CallerInfo]) -> Void {
-        os_log("Caller Id Plugin: Add Contacts")
+        print("Caller Id Plugin: Add Contacts")
         let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        encoder.outputFormatting = .prettyPrinted
         guard let encoded = try? encoder.encode(callers) else { return }
         UserDefaults.standard.set(encoded, forKey: "Contacts")
-        
-        let extensionBundleId = "com.unanet.cosentialformobile.calleridextension"
-        
+        print("Added contacts to user defaults")
+        let extensionBundleId = "com.unanet.cosentialformobile.CallerId"
+//        if #available(iOS 13.4, *) {
+//            CXCallDirectoryManager.sharedInstance.openSettings { (error) in
+//                if let error = error {
+//                    print("Error opening caller id settings: \(error.localizedDescription)")
+//                } else {
+//                    print("Successfully opened settings")
+//                }
+//            }
+//        }
         CXCallDirectoryManager.sharedInstance.getEnabledStatusForExtension(withIdentifier: extensionBundleId, completionHandler: {(status, error) -> Void in
             if let error = error {
                 print(error.localizedDescription)

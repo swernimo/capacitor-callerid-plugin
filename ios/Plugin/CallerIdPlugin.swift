@@ -18,13 +18,14 @@ public class CallerIdPlugin: CAPPlugin {
             let dateFormatter = ISO8601DateFormatter()
             var contacts: [CallerInfo] = []
             for json in contactsJSON {
-                    let displayName = json["displayname"] as! String
-                    let number = Int64.init(json["phonenumber"] as! String)!
-                    let lastUpdatedStr = json["lastupdated"] as? String ?? ""
+                let displayName = json["displayname"] as! String
+                let number = Int64.init(json["phonenumber"] as! String)!
+                let lastUpdatedStr = json["lastupdated"] as? String ?? ""
                 guard let lastUpdated = dateFormatter.date(from: lastUpdatedStr) else { return  }
-                    let contact = CallerInfo(DisplayName: displayName, PhoneNumber: number, LastUpdated: lastUpdated)
-                    contacts.append(contact)
+                let contact = CallerInfo(DisplayName: displayName, PhoneNumber: number, LastUpdated: lastUpdated)
+                contacts.append(contact)
             }
+            
             if(!contacts.isEmpty) {
                 implementation.addContacts(callers: contacts)
                 return call.resolve()
