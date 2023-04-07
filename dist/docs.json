@@ -56,6 +56,13 @@
           "docs": "",
           "complexTypes": [],
           "type": "number | undefined"
+        },
+        {
+          "name": "companyname",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string | undefined"
         }
       ]
     },

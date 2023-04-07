@@ -1,7 +1,7 @@
 import { WebPlugin } from '@capacitor/core';
 export class CallerIdWeb extends WebPlugin {
     async addContacts(options) {
-        console.log('ECHO', options);
+        console.log('caller id plugin', options);
         return;
     }
 }

@@ -44,6 +44,7 @@ addContacts(options: { contacts: ICallerIdContact[]; }) => Promise<void>
 | **`displayname`** | <code>string</code>                   |
 | **`lastupdated`** | <code><a href="#date">Date</a></code> |
 | **`phonenumber`** | <code>number</code>                   |
+| **`companyname`** | <code>string</code>                   |
 
 
 #### Date

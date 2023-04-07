@@ -7,7 +7,7 @@ var capacitorCallerId = (function (exports, core) {
 
     class CallerIdWeb extends core.WebPlugin {
         async addContacts(options) {
-            console.log('ECHO', options);
+            console.log('caller id plugin', options);
             return;
         }
     }
