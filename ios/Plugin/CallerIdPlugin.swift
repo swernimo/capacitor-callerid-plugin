@@ -18,17 +18,30 @@ public class CallerIdPlugin: CAPPlugin {
             let dateFormatter = ISO8601DateFormatter()
             var contacts: [CallerInfo] = []
             for json in contactsJSON {
-                let displayName = json["displayname"] as! String
-                let number = Int64.init(json["phonenumber"] as! String)!
-                let companyname = json["companyname"] as? String ?? ""
-                let lastUpdatedStr = json["lastupdated"] as? String ?? ""
-                guard let lastUpdated = dateFormatter.date(from: lastUpdatedStr) else { return  }
-                let contact = CallerInfo(DisplayName: displayName, PhoneNumber: number, LastUpdated: lastUpdated, CompanyName: companyname)
-                contacts.append(contact)
+                if let number = json["phonenumber"] as? Int64 {
+                    let displayName = json["displayname"] as! String
+                    let companyname = json["companyname"] as? String ?? ""
+                    let lastUpdatedStr = json["lastupdated"] as? String ?? ""
+                    guard let lastUpdated = dateFormatter.date(from: lastUpdatedStr) else { return  }
+                    let contact = CallerInfo(DisplayName: displayName, PhoneNumber: number, LastUpdated: lastUpdated, CompanyName: companyname)
+                    contacts.append(contact)
+                }
             }
             
             if(!contacts.isEmpty) {
-                //TODO: group the array by phone number
+                let groups = Dictionary(grouping: contacts, by: { $0.PhoneNumber })
+                contacts = []
+                let sorted = groups.sorted(by: { $0.key < $1.key})
+                sorted.forEach({ key, value in
+                    if (value.count == 1) {
+                        let contact = CallerInfo(DisplayName: value[0].DisplayName, PhoneNumber: key, LastUpdated: value[0].LastUpdated, CompanyName: value[0].CompanyName)
+                        contacts.append(contact)
+                    } else {
+                        //TODO: handle multiple contacts at same company
+                        //TODO: handle multiple contacts at different companies
+                    }
+                })
+                
                 implementation.addContacts(callers: contacts)
                 return call.resolve()
             }
