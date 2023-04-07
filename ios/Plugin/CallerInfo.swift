@@ -12,10 +12,12 @@ public class CallerInfo: NSObject, Codable {
     public var DisplayName: String
     public var PhoneNumber: Int64
     public var LastUpdated: Date
+    public var CompanyName: String
     
-    init(DisplayName: String, PhoneNumber: Int64, LastUpdated: Date) {
+    init(DisplayName: String, PhoneNumber: Int64, LastUpdated: Date, CompanyName: String) {
         self.DisplayName = DisplayName
         self.PhoneNumber = PhoneNumber
         self.LastUpdated = LastUpdated
+        self.CompanyName = CompanyName
     }
 }

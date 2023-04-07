@@ -20,13 +20,15 @@ public class CallerIdPlugin: CAPPlugin {
             for json in contactsJSON {
                 let displayName = json["displayname"] as! String
                 let number = Int64.init(json["phonenumber"] as! String)!
+                let companyname = json["companyname"] as? String ?? ""
                 let lastUpdatedStr = json["lastupdated"] as? String ?? ""
                 guard let lastUpdated = dateFormatter.date(from: lastUpdatedStr) else { return  }
-                let contact = CallerInfo(DisplayName: displayName, PhoneNumber: number, LastUpdated: lastUpdated)
+                let contact = CallerInfo(DisplayName: displayName, PhoneNumber: number, LastUpdated: lastUpdated, CompanyName: companyname)
                 contacts.append(contact)
             }
             
             if(!contacts.isEmpty) {
+                //TODO: group the array by phone number
                 implementation.addContacts(callers: contacts)
                 return call.resolve()
             }
