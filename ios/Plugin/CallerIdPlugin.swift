@@ -37,8 +37,27 @@ public class CallerIdPlugin: CAPPlugin {
                         let contact = CallerInfo(DisplayName: value[0].DisplayName, PhoneNumber: key, LastUpdated: value[0].LastUpdated, CompanyName: value[0].CompanyName)
                         contacts.append(contact)
                     } else {
-                        //TODO: handle multiple contacts at same company
-                        //TODO: handle multiple contacts at different companies
+                        let personnelGroup = Dictionary(grouping: value, by: { $0.DisplayName})
+                        let companyGroups = Dictionary(grouping: value, by: { $0.CompanyName})
+                        let companyCount = companyGroups.count
+                        if (personnelGroup.count == 1) {
+                            if(companyCount == 1) {
+                                let person = personnelGroup.keys.first!
+                                let contact = CallerInfo(DisplayName: person, PhoneNumber: key, LastUpdated: value.first!.LastUpdated, CompanyName: "Multiple Companies")
+                                contacts.append(contact)
+                            } else {
+                                let contact = CallerInfo(DisplayName: "Multiple Contacts", PhoneNumber: key, LastUpdated: value.first!.LastUpdated, CompanyName: "Multiple Companies")
+                                contacts.append(contact)
+                            }
+                        } else {
+                            if (companyCount == 1) {
+                                let contact = CallerInfo(DisplayName: "Multiple Contacts", PhoneNumber: key, LastUpdated: value.first!.LastUpdated, CompanyName: companyGroups.keys.first!)
+                                contacts.append(contact)
+                            } else {
+                                let contact = CallerInfo(DisplayName: "Multiple Contacts", PhoneNumber: key, LastUpdated: value.first!.LastUpdated, CompanyName: "Multiple Companies")
+                                contacts.append(contact)
+                            }
+                        }
                     }
                 })
                 
