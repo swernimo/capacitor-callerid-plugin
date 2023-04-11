@@ -21,17 +21,7 @@ import CallKit
                 try? FileManager.default.removeItem(atPath: fileUrl.relativePath)
             }
             FileManager.default.createFile(atPath: fileUrl.relativePath, contents: encoded)
-        }
-        
-//        if #available(iOS 13.4, *) {
-//            CXCallDirectoryManager.sharedInstance.openSettings { (error) in
-//                if let error = error {
-//                    print("Error opening caller id settings: \(error.localizedDescription)")
-//                } else {
-//                    print("Successfully opened settings")
-//                }
-//            }
-//        }
+        }        
         CXCallDirectoryManager.sharedInstance.getEnabledStatusForExtension(withIdentifier: extensionBundleId, completionHandler: {(status, error) -> Void in
             if let error = error {
                 print(String(describing: error))
