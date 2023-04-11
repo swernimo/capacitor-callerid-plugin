@@ -2,12 +2,13 @@ import Foundation
 import CallKit
 
 @objc public class CallerId: NSObject {
+    let extensionBundleId = "com.unanet.cosentialformobile.CallerId"
+    
     @objc public func addContacts(callers: [CallerInfo]) -> Void {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = .prettyPrinted
         guard let encoded = try? encoder.encode(callers) else { return }
-        let extensionBundleId = "com.unanet.cosentialformobile.CallerId"
         let groupName = "group.com.unanet.cosentialformobile"
         let fileName = "callers.json"
         if let baseURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupName) {
@@ -21,14 +22,15 @@ import CallKit
                 try? FileManager.default.removeItem(atPath: fileUrl.relativePath)
             }
             FileManager.default.createFile(atPath: fileUrl.relativePath, contents: encoded)
-        }        
-        CXCallDirectoryManager.sharedInstance.getEnabledStatusForExtension(withIdentifier: extensionBundleId, completionHandler: {(status, error) -> Void in
+        }
+        
+        CXCallDirectoryManager.sharedInstance.getEnabledStatusForExtension(withIdentifier: self.extensionBundleId, completionHandler: {(status, error) -> Void in
             if let error = error {
                 print(String(describing: error))
             }
             else {
                 if (status == .enabled) {
-                    CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: extensionBundleId, completionHandler: { (error) in
+                    CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: self.extensionBundleId, completionHandler: { (error) in
                         if let error = error {
                             print(String(describing: "Error reloading extension: \(error)"))
                         }
@@ -37,5 +39,16 @@ import CallKit
             }
         })
         return
+    }
+    
+    @objc public func checkStatus() -> Bool {
+        var isEnabled: Bool = false
+        
+        CXCallDirectoryManager.sharedInstance.getEnabledStatusForExtension(withIdentifier: self.extensionBundleId, completionHandler: { (status, error) -> Void in
+            print("Check Status Result")
+            isEnabled = (status == .enabled)
+        })
+        print ("returning from check status. Status result: \(isEnabled)")
+        return isEnabled
     }
 }

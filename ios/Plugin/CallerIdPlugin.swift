@@ -69,4 +69,12 @@ public class CallerIdPlugin: CAPPlugin {
             return call.reject("Error occured trying to get contacts")
         }
     }
+    
+    @objc func checkStatus(_ call: CAPPluginCall) {
+        let status = implementation.checkStatus()
+        
+        return call.resolve([
+            "value": status
+        ])
+    }
 }
