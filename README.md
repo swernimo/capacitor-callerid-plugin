@@ -14,6 +14,7 @@ npx cap sync
 <docgen-index>
 
 * [`addContacts(...)`](#addcontacts)
+* [`checkStatus()`](#checkstatus)
 * [Interfaces](#interfaces)
 
 </docgen-index>
@@ -30,6 +31,17 @@ addContacts(options: { contacts: ICallerIdContact[]; }) => Promise<void>
 | Param         | Type                                           |
 | ------------- | ---------------------------------------------- |
 | **`options`** | <code>{ contacts: ICallerIdContact[]; }</code> |
+
+--------------------
+
+
+### checkStatus()
+
+```typescript
+checkStatus() => Promise<boolean>
+```
+
+**Returns:** <code>Promise&lt;boolean&gt;</code>
 
 --------------------
 

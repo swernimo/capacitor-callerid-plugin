@@ -3,4 +3,5 @@ export interface CallerIdPlugin {
     addContacts(options: {
         contacts: ICallerIdContact[];
     }): Promise<void>;
+    checkStatus(): Promise<boolean>;
 }

@@ -22,6 +22,16 @@
           "ICallerIdContact"
         ],
         "slug": "addcontacts"
+      },
+      {
+        "name": "checkStatus",
+        "signature": "() => Promise<boolean>",
+        "parameters": [],
+        "returns": "Promise<boolean>",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "checkstatus"
       }
     ],
     "properties": []

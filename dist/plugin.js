@@ -10,6 +10,10 @@ var capacitorCallerId = (function (exports, core) {
             console.log('caller id plugin', options);
             return;
         }
+        async checkStatus() {
+            console.log("always returning false for caller id: check status on web");
+            return false;
+        }
     }
 
     var web = /*#__PURE__*/Object.freeze({

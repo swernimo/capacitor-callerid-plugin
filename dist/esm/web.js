@@ -4,5 +4,9 @@ export class CallerIdWeb extends WebPlugin {
         console.log('caller id plugin', options);
         return;
     }
+    async checkStatus() {
+        console.log("always returning false for caller id: check status on web");
+        return false;
+    }
 }
 //# sourceMappingURL=web.js.map
