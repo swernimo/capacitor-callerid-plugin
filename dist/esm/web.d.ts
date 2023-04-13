@@ -5,5 +5,7 @@ export declare class CallerIdWeb extends WebPlugin implements CallerIdPlugin {
     addContacts(options: {
         contacts: ICallerIdContact[];
     }): Promise<void>;
-    checkStatus(): Promise<boolean>;
+    checkStatus(): Promise<{
+        value: boolean;
+    }>;
 }

@@ -38,10 +38,10 @@ addContacts(options: { contacts: ICallerIdContact[]; }) => Promise<void>
 ### checkStatus()
 
 ```typescript
-checkStatus() => Promise<boolean>
+checkStatus() => Promise<{ value: boolean; }>
 ```
 
-**Returns:** <code>Promise&lt;boolean&gt;</code>
+**Returns:** <code>Promise&lt;{ value: boolean; }&gt;</code>
 
 --------------------
 

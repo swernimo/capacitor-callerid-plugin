@@ -10,8 +10,8 @@ export class CallerIdWeb extends WebPlugin implements CallerIdPlugin {
     return;
   }
 
-  async checkStatus(): Promise<boolean> {
+  async checkStatus(): Promise<{value: boolean}> {
     console.log("always returning false for caller id: check status on web");
-    return false;
+    return {value: false};
   }
 }

@@ -25,9 +25,9 @@
       },
       {
         "name": "checkStatus",
-        "signature": "() => Promise<boolean>",
+        "signature": "() => Promise<{ value: boolean; }>",
         "parameters": [],
-        "returns": "Promise<boolean>",
+        "returns": "Promise<{ value: boolean; }>",
         "tags": [],
         "docs": "",
         "complexTypes": [],

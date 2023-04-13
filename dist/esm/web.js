@@ -6,7 +6,7 @@ export class CallerIdWeb extends WebPlugin {
     }
     async checkStatus() {
         console.log("always returning false for caller id: check status on web");
-        return false;
+        return { value: false };
     }
 }
 //# sourceMappingURL=web.js.map

@@ -9,12 +9,7 @@ import OSLog
 @objc(CallerIdPlugin)
 public class CallerIdPlugin: CAPPlugin {
     private let implementation = CallerId()
-    private var statusCallId: String
-    
-    public override init() {
-        self.statusCallId = ""
-        super.init()
-    }
+    private var statusCallId: String?
     
     @objc func addContacts(_ call: CAPPluginCall) {
         if let contactsJSON = call.getAny("contacts") as? [[String: AnyObject]] {
@@ -77,27 +72,22 @@ public class CallerIdPlugin: CAPPlugin {
     }
     
     @objc func checkStatus(_ call: CAPPluginCall) {
-        print("Check Status Begin")
         bridge?.saveCall(call)
         statusCallId = call.callbackId
         implementation.checkStatus(completionHandler: {(status, error) -> Void in
-            print("Inside check status completion handler")
-            guard let savedCall = self.bridge?.savedCall(withID: self.statusCallId) else {
+            guard let savedCall = self.bridge?.savedCall(withID: self.statusCallId!) else {
                 return call.reject("Error retrieving saved capacitor call")
             }
             
-            guard error != nil else {
+            guard error == nil else {
                 print(String(describing: error))
                 return savedCall.reject("Error checking status")
             }
             
             self.bridge?.releaseCall(savedCall)
-            print("Extension Status: \(status)")
-            print("Resolving saved call")
             return savedCall.resolve([
-                "value": status
+                "value": status == .enabled
             ])
         })
-        print("Check Status End")
     }
 }

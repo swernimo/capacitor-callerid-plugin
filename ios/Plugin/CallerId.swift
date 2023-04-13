@@ -3,11 +3,7 @@ import CallKit
 
 @objc public class CallerId: NSObject {
     let extensionBundleId = "com.unanet.cosentialformobile.CallerId"
-    
-    public override init() {
-        super.init()
-    }
-    
+ 
     @objc public func addContacts(callers: [CallerInfo]) -> Void {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
