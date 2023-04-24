@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.theblindsquirrel.capacitor.callerid.plugin">
     <application>
-        <activity android:name="com.getcapacitor.BridgeActivity" android:exported="true">
+        <acitivty>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.DIAL" />
@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <service android:name="com.unanet.cosentialformobile.services.CallScreenService"
+        
+        <service android:name=".services.CallScreenService"
             android:permission="android.permission.BIND_SCREENING_SERVICE"
             android:exported="false">
             <intent-filter>
