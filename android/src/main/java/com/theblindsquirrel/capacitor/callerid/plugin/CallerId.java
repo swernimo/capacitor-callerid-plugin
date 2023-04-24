@@ -1,13 +1,12 @@
 package com.theblindsquirrel.capacitor.callerid.plugin;
 
-import static android.content.Context.ROLE_SERVICE;
 import static androidx.core.content.ContextCompat.getSystemService;
 import android.app.role.RoleManager;
 import android.content.Intent;
 import android.util.Log;
 
-public class CallerId extends com.unanet.cosentialformobile.MainActivity  {
-    private static final String TAG = com.unanet.cosentialformobile.MainActivity.class.getSimpleName();
+public class CallerId {
+    private static final String TAG = MainActivity.class.getSimpleName();
     private static final int REQUEST_ID = 1;
 
     public void addContacts() {
