@@ -12,14 +12,11 @@ public class CallerIdPlugin extends Plugin {
     private CallerId implementation = new CallerId();
 
     @PluginMethod
-    public void addContacts(PluginCall call) {
-        //TODO: 
-        implementation.addContacts();
-    }
+    public void echo(PluginCall call) {
+        String value = call.getString("value");
 
-    @PluginMethod
-    public void checkStatus(PluginCall call) {
-        implementation.checkStatus();
-        call.resolve('true');
+        JSObject ret = new JSObject();
+        ret.put("value", implementation.echo(value));
+        call.resolve(ret);
     }
 }
