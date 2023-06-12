@@ -10,6 +10,7 @@ import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 import com.theblindsquirrel.capacitor.callerid.plugin.database.AppDatabase;
+import com.theblindsquirrel.capacitor.callerid.plugin.database.CallerIdContact;
 
 @CapacitorPlugin(name = "CallerId")
 public class CallerIdPlugin extends Plugin {
