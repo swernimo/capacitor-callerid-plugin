@@ -29,43 +29,8 @@ public class CallerIdPlugin: CAPPlugin {
                 }
             }
             
-            if(!contacts.isEmpty) {
-                let groups = Dictionary(grouping: contacts, by: { $0.PhoneNumber })
-                contacts = []
-                let sorted = groups.sorted(by: { $0.key < $1.key})
-                sorted.forEach({ key, value in
-                    if (value.count == 1) {
-                        let contact = CallerInfo(DisplayName: value[0].DisplayName, PhoneNumber: key, LastUpdated: value[0].LastUpdated, CompanyName: value[0].CompanyName)
-                        contacts.append(contact)
-                    } else {
-                        let personnelGroup = Dictionary(grouping: value, by: { $0.DisplayName})
-                        let companyGroups = Dictionary(grouping: value, by: { $0.CompanyName})
-                        let companyCount = companyGroups.count
-                        if (personnelGroup.count == 1) {
-                            if(companyCount == 1) {
-                                let person = personnelGroup.keys.first!
-                                let contact = CallerInfo(DisplayName: person, PhoneNumber: key, LastUpdated: value.first!.LastUpdated, CompanyName: "Multiple Companies")
-                                contacts.append(contact)
-                            } else {
-                                let contact = CallerInfo(DisplayName: "Multiple Contacts", PhoneNumber: key, LastUpdated: value.first!.LastUpdated, CompanyName: "Multiple Companies")
-                                contacts.append(contact)
-                            }
-                        } else {
-                            if (companyCount == 1) {
-                                let contact = CallerInfo(DisplayName: "Multiple Contacts", PhoneNumber: key, LastUpdated: value.first!.LastUpdated, CompanyName: companyGroups.keys.first!)
-                                contacts.append(contact)
-                            } else {
-                                let contact = CallerInfo(DisplayName: "Multiple Contacts", PhoneNumber: key, LastUpdated: value.first!.LastUpdated, CompanyName: "Multiple Companies")
-                                contacts.append(contact)
-                            }
-                        }
-                    }
-                })
-                
-                implementation.addContacts(callers: contacts)
-                return call.resolve()
-            }
-            return call.reject("Invalid contacts")
+            implementation.addContacts(callers: contacts)
+            return call.resolve()
         } else {
             return call.reject("Error occured trying to get contacts")
         }
