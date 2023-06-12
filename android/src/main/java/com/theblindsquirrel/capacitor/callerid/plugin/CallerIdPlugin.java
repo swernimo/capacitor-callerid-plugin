@@ -1,5 +1,7 @@
 package com.theblindsquirrel.capacitor.callerid.plugin;
 
+import android.util.Log;
+
 import androidx.room.Room;
 
 import com.getcapacitor.JSObject;
@@ -7,13 +9,10 @@ import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
-
-import java.util.Date;
+import com.theblindsquirrel.capacitor.callerid.plugin.database.AppDatabase;
 
 @CapacitorPlugin(name = "CallerId")
 public class CallerIdPlugin extends Plugin {
-
-    private CallerId implementation = new CallerId();
 
     @PluginMethod
     public void checkStatus(PluginCall call) {
@@ -31,7 +30,7 @@ public class CallerIdPlugin extends Plugin {
         for(var i = 0; i < contacts.length(); i++) {
             try {
                 var jsonContact = contacts.getJSONObject(i);
-                var calleridContact = new CallerIdContact();
+                CallerIdContact calleridContact = new CallerIdContact();
                 calleridContact.phoneNumber = jsonContact.getString("phonenumber");
                 calleridContact.displayName = jsonContact.getString("displayname");
                 calleridContact.companyName = jsonContact.getString("companyname");
