@@ -22,7 +22,7 @@ public interface CallerIdContactDao {
     void delete(CallerIdContact contact);
 
     @Insert
-    void insertContact(com.theblindsquirrel.capacitor.callerid.plugin.CallerIdContact contact);
+    void insertContact(CallerIdContact contact);
 
     @Query("delete from CallerIdContact")
     void deleteAllContacts();
