@@ -47,6 +47,7 @@ public class CallerIdPlugin extends Plugin {
             var roleManager = (RoleManager) context.getSystemService(ROLE_SERVICE);
             var intent = roleManager.createRequestRoleIntent(RoleManager.ROLE_CALL_SCREENING);
             startActivityForResult(call, intent, "callScreenResult");
+            ret.put("value", true);
         } else {
             ret.put("value", false);
         }
