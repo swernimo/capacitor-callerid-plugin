@@ -10,6 +10,7 @@ import android.app.role.RoleManager;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -47,25 +48,29 @@ public class CallerIdPlugin extends Plugin {
             var roleManager = (RoleManager) context.getSystemService(ROLE_SERVICE);
             var intent = roleManager.createRequestRoleIntent(RoleManager.ROLE_CALL_SCREENING);
             startActivityForResult(call, intent, "callScreenResult");
-            ret.put("value", true);
         } else {
             ret.put("value", false);
+            call.resolve(ret);
         }
-        call.resolve(ret);
     }
 
     @ActivityCallback
     private void callScreenResult(PluginCall call, ActivityResult result) {
+        JSObject ret = new JSObject();
         if (result.getResultCode() == RESULT_OK) {
+            ActivityCompat.requestPermissions(activity, new String[] { Manifest.permission.READ_PHONE_STATE}, 3);
             var phonePerms = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE);
-            if(phonePerms != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(activity, new String[] { Manifest.permission.READ_PHONE_STATE}, 3);
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+                ActivityCompat.requestPermissions(activity, new String[] { Manifest.permission.POST_NOTIFICATIONS}, 101);
+                var notificationPerms = ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS);
+                ret.put("value", (notificationPerms == PackageManager.PERMISSION_GRANTED && phonePerms == PackageManager.PERMISSION_GRANTED));
+            } else {
+                ret.put("value", phonePerms == PackageManager.PERMISSION_GRANTED);
             }
-            var notificationPerms = ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS);
-            if(notificationPerms != PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions(activity, new String[] { Manifest.permission.POST_NOTIFICATIONS }, 3);
-            }
+        } else {
+            ret.put("value", false);
         }
+        call.resolve(ret);
     }
     
     @PluginMethod
