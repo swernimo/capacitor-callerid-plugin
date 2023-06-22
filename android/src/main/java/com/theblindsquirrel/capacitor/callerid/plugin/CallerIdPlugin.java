@@ -60,13 +60,7 @@ public class CallerIdPlugin extends Plugin {
         if (result.getResultCode() == RESULT_OK) {
             ActivityCompat.requestPermissions(activity, new String[] { Manifest.permission.READ_PHONE_STATE}, 3);
             var phonePerms = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE);
-            // if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
-            //     ActivityCompat.requestPermissions(activity, new String[] { Manifest.permission.POST_NOTIFICATIONS}, 101);
-            //     var notificationPerms = ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS);
-            //     ret.put("value", (notificationPerms == PackageManager.PERMISSION_GRANTED && phonePerms == PackageManager.PERMISSION_GRANTED));
-            // } else {
-                ret.put("value", phonePerms == PackageManager.PERMISSION_GRANTED);
-            // }
+            ret.put("value", phonePerms == PackageManager.PERMISSION_GRANTED);
         } else {
             ret.put("value", false);
         }
