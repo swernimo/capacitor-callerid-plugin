@@ -40,6 +40,10 @@ public class CallerIdPlugin: CAPPlugin {
                     return savedCall.reject(msg, nil, error)
                 }
                 
+                guard msg.isEmpty else {
+                    return savedCall.reject(msg)
+                }
+                
                 return savedCall.resolve()
             })
         } else {

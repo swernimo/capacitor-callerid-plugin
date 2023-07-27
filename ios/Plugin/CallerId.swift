@@ -36,7 +36,10 @@ import CallKit
                                 let errorMsg = String(describing: "Error reloading extension: \(error)")
                                 completionHandler(errorMsg, error)
                             }
+                            completionHandler("", nil)
                         })
+                    } else {
+                        completionHandler("Caller Id Status is disabled", nil)
                     }
                 }
         })
