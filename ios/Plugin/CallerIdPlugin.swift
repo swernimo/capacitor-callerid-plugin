@@ -37,13 +37,16 @@ public class CallerIdPlugin: CAPPlugin {
                 }
                 
                 guard error == nil else {
+                    self.bridge?.releaseCall(savedCall)
                     return savedCall.reject(msg, nil, error)
                 }
                 
                 guard msg.isEmpty else {
+                    self.bridge?.releaseCall(savedCall)
                     return savedCall.reject(msg)
                 }
                 
+                self.bridge?.releaseCall(savedCall)
                 return savedCall.resolve()
             })
         } else {
@@ -60,7 +63,7 @@ public class CallerIdPlugin: CAPPlugin {
             }
             
             guard error == nil else {
-                print(String(describing: error))
+                self.bridge?.releaseCall(savedCall)
                 return savedCall.reject("Error checking status \(String(describing: error))", nil, error)
             }
             
