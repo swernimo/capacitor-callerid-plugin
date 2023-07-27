@@ -4,7 +4,7 @@ import CallKit
 @objc public class CallerId: NSObject {
     let extensionBundleId = "com.unanet.cosentialformobile.CallerId"
  
-    @objc public func addContacts(callers: [CallerInfo]) -> Void {
+    @objc public func addContacts(callers: [CallerInfo], completionHandler: @escaping (String, Error?) -> Void) -> Void {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = .prettyPrinted
@@ -26,13 +26,15 @@ import CallKit
         
         self.checkStatus(completionHandler: {(status, error) -> Void in
                 if let error = error {
-                    print(String(describing: error))
+                    let errorMsg = String(describing: "Error checking status: \(error)")
+                    completionHandler(errorMsg, error)
                 }
                 else {
                     if (status == .enabled) {
                         CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: self.extensionBundleId, completionHandler: { (error) in
                             if let error = error {
-                                print(String(describing: "Error reloading extension: \(error)"))
+                                let errorMsg = String(describing: "Error reloading extension: \(error)")
+                                completionHandler(errorMsg, error)
                             }
                         })
                     }

@@ -12,6 +12,8 @@ public class CallerIdPlugin: CAPPlugin {
     private var statusCallId: String?
     
     @objc func addContacts(_ call: CAPPluginCall) {
+        bridge?.saveCall(call)
+        statusCallId = call.callbackId
         if let contactsJSON = call.getAny("contacts") as? [[String: AnyObject]] {
             if(contactsJSON.isEmpty) {
                 return call.reject("Cannot Add Empty Array")
@@ -29,8 +31,17 @@ public class CallerIdPlugin: CAPPlugin {
                 }
             }
             
-            implementation.addContacts(callers: contacts)
-            return call.resolve()
+            implementation.addContacts(callers: contacts, completionHandler: {(msg, error) -> Void in
+                guard let savedCall = self.bridge?.savedCall(withID: self.statusCallId!) else {
+                    return call.reject("Error retrieving saved called for caller id: add contacts")
+                }
+                
+                guard error == nil else {
+                    return savedCall.reject(msg, nil, error)
+                }
+                
+                return savedCall.resolve()
+            })
         } else {
             return call.reject("Error occured trying to get contacts")
         }
@@ -41,12 +52,12 @@ public class CallerIdPlugin: CAPPlugin {
         statusCallId = call.callbackId
         implementation.checkStatus(completionHandler: {(status, error) -> Void in
             guard let savedCall = self.bridge?.savedCall(withID: self.statusCallId!) else {
-                return call.reject("Error retrieving saved capacitor call")
+                return call.reject("Error retrieving saved capacitor call for caller id: check status")
             }
             
             guard error == nil else {
                 print(String(describing: error))
-                return savedCall.reject("Error checking status")
+                return savedCall.reject("Error checking status \(String(describing: error))", nil, error)
             }
             
             self.bridge?.releaseCall(savedCall)
