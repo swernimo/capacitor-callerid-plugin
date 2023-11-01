@@ -1,6 +1,6 @@
 {
   "name": "@swernimont/capacitor-callerid-plugin",
-  "version": "1.0.0-beta2",
+  "version": "1.0.0-beta3",
   "description": "A capacitor plugin that displays the name of an incoming call when the incoming phone number matches a contact within the app.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -12,7 +12,7 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "CapacitorCalleridPlugin.podspec"
+    "SwernimontCapacitorCalleridPlugin.podspec"
   ],
   "author": "Sean Wernimont",
   "license": "MIT",
