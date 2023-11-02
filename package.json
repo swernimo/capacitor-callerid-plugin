@@ -1,6 +1,6 @@
 {
   "name": "@swernimont/capacitor-callerid-plugin",
-  "version": "1.0.0-beta3",
+  "version": "1.0.0-beta4",
   "description": "A capacitor plugin that displays the name of an incoming call when the incoming phone number matches a contact within the app.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -76,5 +76,7 @@
       "src": "android"
     }
   },
-  "publishConfig": {"access": "public"}
+  "publishConfig": {
+    "access": "public"
+  }
 }
