@@ -4,6 +4,7 @@ ext {
     androidxJunitVersion = project.hasProperty('androidxJunitVersion') ? rootProject.ext.androidxJunitVersion : '1.1.5'
     androidxEspressoCoreVersion = project.hasProperty('androidxEspressoCoreVersion') ? rootProject.ext.androidxEspressoCoreVersion : '3.5.1'
     room_version = '2.5.1'
+    ext.kotlin_version = '1.9.20'
 }
 
 buildscript {
@@ -13,6 +14,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.0.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
