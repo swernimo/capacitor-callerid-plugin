@@ -1,7 +1,7 @@
 import Foundation
 import Capacitor
 import OSLog
-
+import NotificationCenter
 /**
  * Please read the Capacitor iOS Plugin Development Guide
  * here: https://capacitorjs.com/docs/plugins/ios
@@ -12,43 +12,12 @@ public class CallerIdPlugin: CAPPlugin {
     private var statusCallId: String?
     
     @objc func addContacts(_ call: CAPPluginCall) {
-        bridge?.saveCall(call)
-        statusCallId = call.callbackId
         if let contactsJSON = call.getAny("contacts") as? [[String: AnyObject]] {
             if(contactsJSON.isEmpty) {
                 return call.reject("Cannot Add Empty Array")
             }
-            let dateFormatter = ISO8601DateFormatter()
-            var contacts: [CallerInfo] = []
-            for json in contactsJSON {
-                if let number = json["phonenumber"] as? Int64 {
-                    let displayName = json["displayname"] as! String
-                    let companyname = json["companyname"] as? String ?? ""
-                    let lastUpdatedStr = json["lastupdated"] as? String ?? ""
-                    guard let lastUpdated = dateFormatter.date(from: lastUpdatedStr) else { return  }
-                    let contact = CallerInfo(DisplayName: displayName, PhoneNumber: number, LastUpdated: lastUpdated, CompanyName: companyname)
-                    contacts.append(contact)
-                }
-            }
-            
-            implementation.addContacts(callers: contacts, completionHandler: {(msg, error) -> Void in
-                guard let savedCall = self.bridge?.savedCall(withID: self.statusCallId!) else {
-                    return call.reject("Error retrieving saved called for caller id: add contacts")
-                }
-                
-                guard error == nil else {
-                    self.bridge?.releaseCall(savedCall)
-                    return savedCall.reject(msg, nil, error)
-                }
-                
-                guard msg.isEmpty else {
-                    self.bridge?.releaseCall(savedCall)
-                    return savedCall.reject(msg)
-                }
-                
-                self.bridge?.releaseCall(savedCall)
-                return savedCall.resolve()
-            })
+            NotificationCenter.default.post(name: Notification.Name("callerid"), object: nil, userInfo: ["contacts": contactsJSON])
+            call.resolve()
         } else {
             return call.reject("Error occured trying to get contacts")
         }
